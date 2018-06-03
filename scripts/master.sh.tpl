@@ -80,3 +80,6 @@ curl -sL https://raw.githubusercontent.com/kubernetes/kubernetes/v${k8s_version}
 # Install dashboard addon
 curl -sL https://raw.githubusercontent.com/kubernetes/dashboard/${dashboard_version}/src/deploy/kubernetes-dashboard.yaml |
   kubectl create -n kube-system -f -
+
+mkdir ~/.kube
+cp /etc/kubernetes/admin.conf .kube/config

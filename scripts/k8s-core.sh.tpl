@@ -48,6 +48,7 @@ cp /etc/kubernetes/gce.conf /etc/kubernetes/pki/gce.conf
 # for GLBC
 touch /var/log/glbc.log
 
+mkdir /etc/docker
 cat <<EOF > /etc/docker/daemon.json
 {
   "storage-driver": "overlay2",

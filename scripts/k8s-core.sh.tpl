@@ -48,6 +48,13 @@ cp /etc/kubernetes/gce.conf /etc/kubernetes/pki/gce.conf
 # for GLBC
 touch /var/log/glbc.log
 
+cat <<EOF > /etc/docker/daemon.json
+{
+  "storage-driver": "overlay2",
+  "ipv6": true, "fixed-cidr-v6": "2001:db8:1::/64"
+}
+EOF
+
 sudo apt-get install -y \
   jq \
   nginx \

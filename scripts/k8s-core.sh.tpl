@@ -85,4 +85,3 @@ systemctl daemon-reload
 systemctl restart docker
 
 systemctl enable nginx   ; systemctl restart nginx
-systemctl enable kubelet ; systemctl restart kubeletcl

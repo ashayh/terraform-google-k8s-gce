@@ -60,8 +60,9 @@ data:
   uid: ${cluster_uid}
 EOF
 
-mkdir ~/.kube
-cp /etc/kubernetes/admin.conf .kube/config
+curl -o helm.tgz https://storage.googleapis.com/kubernetes-helm/helm-v2.9.1-linux-amd64.tar.gz
+tar xvzf helm.tgz
+cp linux-amd64/helm /usr/bin/
 
 # Install L7 GLBC controller, path glbc.manifest to support kubeadm cluster.
 #curl -sL https://raw.githubusercontent.com/kubernetes/kubernetes/v${k8s_version}/cluster/saltbase/salt/l7-gcp/glbc.manifest > /tmp/glbc.manifest
@@ -85,3 +86,7 @@ curl -sL https://raw.githubusercontent.com/kubernetes/kubernetes/v${k8s_version}
 #curl -sL https://raw.githubusercontent.com/kubernetes/dashboard/${dashboard_version}/src/deploy/recommended/kubernetes-dashboard.yaml |
 curl -sL https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml |
   kubectl create -n kube-system -f -
+
+
+mkdir ~/.kube
+cp /etc/kubernetes/admin.conf .kube/config

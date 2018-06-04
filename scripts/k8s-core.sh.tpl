@@ -1,5 +1,7 @@
 #!/bin/bash -xe
 
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+
 yum -y install \
   epel-release \
   device-mapper-persistent-data \

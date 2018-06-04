@@ -81,9 +81,8 @@ done
 
 systemctl enable docker
 sed -i 's#ExecStart=/usr/bin/dockerd.*#ExecStart=/usr/bin/dockerd --exec-opt native.cgroupdriver=systemd#' /etc/systemd/system/multi-user.target.wants/docker.service
-systemctl restart docker
- 
 systemctl daemon-reload
+systemctl restart docker
 
 systemctl enable nginx   ; systemctl restart nginx
 systemctl enable kubelet ; systemctl restart kubeletcl

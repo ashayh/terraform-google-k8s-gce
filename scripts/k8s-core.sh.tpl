@@ -78,3 +78,6 @@ for f in kubelet kubeadm kubectl; do
 done
 
 systemctl daemon-reload
+systemctl enable docker
+systemctl enable nginx
+systemctl enable kubelet

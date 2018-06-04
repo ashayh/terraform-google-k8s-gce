@@ -83,5 +83,5 @@ curl -sL https://raw.githubusercontent.com/kubernetes/kubernetes/v${k8s_version}
 
 # Install dashboard addon
 #curl -sL https://raw.githubusercontent.com/kubernetes/dashboard/${dashboard_version}/src/deploy/recommended/kubernetes-dashboard.yaml |
-curl -sL https://github.com/kubernetes/dashboard/blob/master/src/deploy/recommended/kubernetes-dashboard.yaml |
+curl -sL https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml |
   kubectl create -n kube-system -f -

@@ -65,7 +65,7 @@ cp /etc/kubernetes/admin.conf .kube/config
 
 # Install L7 GLBC controller, path glbc.manifest to support kubeadm cluster.
 #curl -sL https://raw.githubusercontent.com/kubernetes/kubernetes/v${k8s_version}/cluster/saltbase/salt/l7-gcp/glbc.manifest > /tmp/glbc.manifest
-https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/gce/manifests/glbc.manifest  > /tmp/glbc.manifest
+curl -sL https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/gce/manifests/glbc.manifest  > /tmp/glbc.manifest
 kubectl convert -f /tmp/glbc.manifest -o json | jq '.spec.volumes |= . + [{"name": "kubeconfig", "hostPath": {"path": "/etc/kubernetes/admin.conf", "type": "File"}}] | .spec.containers[0].volumeMounts |= . + [{"name": "kubeconfig", "readOnly": true, "mountPath": "/etc/kubernetes/admin.conf"}]' | \
   sed \
     -e 's|--apiserver-host=http://localhost:8080|--apiserver-host=https://127.0.0.1:6443|g' \
